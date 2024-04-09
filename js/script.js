@@ -267,7 +267,37 @@ const exercicio14 = () => {
   }
 };
 
-//-------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------
+
+const exercicio15 = () => {
+  let palavra = document.getElementById("palavra").value;
+  let error = document.getElementById("erro");
+  let result = document.getElementById("resultado");
+  error.innerHTML = "";
+  result.innerHTML = "";
+  var letra = "";
+  // var vogal = [palavra.length[a|e|i|o|u]];
+  // var consoantes = [palavra.length != vogal];
+
+  for (let i = 0; i < palavra.length; i++) {
+    letra = palavra[i];
+    letra = letra.toLowerCase();
+    if (
+      letra == "a" ||
+      letra == "e" ||
+      letra == "i" ||
+      letra == "o" ||
+      letra == "u"
+    ) {
+      result.innerHTML += `Letra ${letra} - Vogal <br>`;
+    } else {
+      result.innerHTML += `Letra ${letra} - Consoante <br>`;
+    }
+  }
+
+};
+
+// -------------------------------------------------------------------------------------
 
 const exercicio16 = () => {
   let raio = document.getElementById("num1").value;
@@ -352,51 +382,139 @@ const exercicio19 = () => {
 //-------------------------------------------------------------------------------------
 
 const exercicio20 = () => {
+  let frase = document.getElementById("frase").value;
+  let error = document.getElementById("erro");
+  let result = document.getElementById("resultado");
+  error.innerText = "";
+  result.innerText = "";
+
+  let inversa = "";
+
+  if (frase === "") {
+    error.innerText = "Favor informar uma frase!";
+    result.innerText = "";
+  } else {
+    error.innerText = "";
+    for (let i = frase.length - 1; i >= 0; i--) {
+      inversa += frase[i];
+    }
+    result.innerText = `${inversa}`;
+  }
+};
+
+//-------------------------------------------------------------------------------------
+
+const exercicio21 = () => {
 let frase = document.getElementById("frase").value;
 let error = document.getElementById("erro");
 let result = document.getElementById("resultado");
 error.innerText = "";
 result.innerText = "";
 
-let inversa = "";
-
 if (frase === "") {
-  error.innerText = "Favor informar uma frase!";
+  error.innerText = "Favor inserir frase.";
   result.innerText = "";
 } else {
+  function removeEspaco(frase) {
+    let novaFrase = "";
+    for (let i = 0; i < frase.length; i++) {
+      if (frase[i] !== ` `) 
+      novaFrase += frase[i];
+    } 
+    return novaFrase;
+    }
+    let frase1 = removeEspaco (frase)
+  result.innerText = `${frase1}`;
   error.innerText = "";
-  for (let i = frase.length - 1; i >= 0; i--) {
-    inversa += frase[i];
-  }
-  result.innerText = `${inversa}`;
 }
+};
+
+// -------------------------------------------------------------------------------------
+
+let soma = 0;
+const exercicio22 = () => {
+  let num = document.getElementById("num").value;
+  let resultado = document.getElementById("resultado");
+  let error = document.getElementById("erro");
+  error.innerText = "";
+  resultado.innerText = "";
+  soma += parseInt(num);
+  console.log(soma);
+  if (soma <= 100) {
+    resultado.innerText = `A soma dos números informados resultam em ${soma}!`;
+    erro.innerText = "";
+  } else {
+    resultado.innerText = "";
+    erro.innerText = `A soma dos números informados são maiores que 100, favor começar novamente!`;
+  }
 };
 
 //-------------------------------------------------------------------------------------
 
-// const exercicio21 = () => {
-// let frase = document.getElementById("frase").value;
-// let error = document.getElementById("erro");
-// let result = document.getElementById("resultado");
-// error.innerText = "";
-// result.innerText = "";
+const exercicio23 = () => {
+  let frase = document.getElementById("frase").value.toLowerCase();
+  let palavra = document.getElementById("palavra").value.toLowerCase();
+  let resultado = document.getElementById("resultado");
+  let error = document.getElementById("erro");
+  error.innerText = "";
+  resultado.innerText = "";
+  var contador = 0;
+  var buscPalavra  = frase.split(" ");
 
-// if (frase == "") {
-//   error.innerText = "Favor informar uma frase!";
-//   result.innerText = "";
-// } else {
-//   error.innerText = "";
-  
-// }
-// };
+  if (frase == "" || palavra == "") {
+    error.innerText = `Favor informar uma frase ou palavra.`
+  } else {
+    for (let i = 0; i < buscPalavra.length; i++) {
+       if (palavra == buscPalavra[i]) {
+        contador++
+       }
+      
+    }
+    resultado.innerText = `A palavra ${palavra} aparece ${contador} vezes`;
+  }
+};
 
 //-------------------------------------------------------------------------------------
 
-// const exercicio22 = () => { 
-//   let num = document.getElementById("num");
-//   let resposta = document.getElementById("resposta");
-//   let resultado = document.getElementById("resultado");
-//   let error = document.getElementById("erro");
-//   error.innerText = "";
-//   resultado.innerText = "";
-// };
+const exercicio24 = () => {
+  let frase = document.getElementById("frase").value.toLowerCase();
+  let resultado = document.getElementById("resultado");
+  let error = document.getElementById("erro");
+  error.innerText = "";
+  resultado.innerText = "";
+  let palavra = "";
+  let novaFrase = "";
+
+  if (frase == "") {
+    error.innerText = `Favor informar uma frase ou palavra.`
+    resultado.innerText = "";
+  } else {
+    for (let i = 0; i < frase.length; i++) 
+    if (palavra.length[0] == palavra.toLowerCase())
+    novaFrase[i] == palavra.length[0].toUpperCase()
+  }
+
+resultado.innerText = `${novaFrase}`;
+};
+
+//-------------------------------------------------------------------------------------
+
+const exercicio25 = () => {
+  let num1 = document.getElementById("num1").value;
+  let num2 = document.getElementById("num2").value;
+  let num3 = document.getElementById("num3").value;
+  let resultado = document.getElementById("resultado");
+  let error = document.getElementById("erro");
+  error.innerText = "";
+  resultado.innerText = "";
+
+  if (num1 <= num2 || <= num3) {
+    resultado.innerText = `${num1}`;
+  } else if (num2 <= num1 || <= num3 ){
+    resultado.innerText = `${num2}`;
+  } else if (num3 <= num1 || <= num3 ){
+    resultado.innerText = `${num2}`;
+  } else if (){
+
+  }
+};
